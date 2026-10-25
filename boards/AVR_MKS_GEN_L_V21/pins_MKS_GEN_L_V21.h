@@ -77,46 +77,46 @@
 
 // DRIVER_TYPE_TMC2209_UART requires 4 digital pins in Arduino pin numbering
 #ifndef AZ_STEP_PIN
-    #define AZ_STEP_PIN 46  // STEP
+    #define AZ_STEP_PIN 26// STEP
 #endif
 #ifndef AZ_DIR_PIN
-    #define AZ_DIR_PIN 48  // DIR
+    #define AZ_DIR_PIN 28// DIR
 #endif
 #ifndef AZ_EN_PIN
-    #define AZ_EN_PIN 62  // Enable
+    #define AZ_EN_PIN 24 // Enable
 #endif
 #ifndef AZ_DIAG_PIN
-    #define AZ_DIAG_PIN 18  // only needed for autohome function
+    #define AZ_DIAG_PIN 2 // only needed for autohome function
 #endif
 // DRIVER_TYPE_TMC2209_UART requires 2 additional digital pins for SoftwareSerial, can be shared across all drivers
 #ifndef AZ_SERIAL_PORT_TX
-    #define AZ_SERIAL_PORT_TX 42  // SoftwareSerial TX port
+    #define AZ_SERIAL_PORT_TX 44 // SoftwareSerial TX port
 #endif
 #ifndef AZ_SERIAL_PORT_RX
-    #define AZ_SERIAL_PORT_RX 65  // SoftwareSerial RX port
+    #define AZ_SERIAL_PORT_RX 66 // SoftwareSerial RX port
 #endif
 #ifndef AZ_DRIVER_ADDRESS
     #define AZ_DRIVER_ADDRESS 0b00
 #endif
 // DRIVER_TYPE_TMC2209_UART requires 4 digital pins in Arduino pin numbering
 #ifndef ALT_STEP_PIN
-    #define ALT_STEP_PIN 26  // STEP
+    #define ALT_STEP_PIN 46 // STEP
 #endif
 #ifndef ALT_DIR_PIN
-    #define ALT_DIR_PIN 28  // DIR
+    #define ALT_DIR_PIN 48 // DIR
 #endif
 #ifndef ALT_EN_PIN
-    #define ALT_EN_PIN 24  // Enable
+    #define ALT_EN_PIN 62 // Enable
 #endif
 #ifndef ALT_DIAG_PIN
-    #define ALT_DIAG_PIN 2  // only needed for autohome function
+    #define ALT_DIAG_PIN 18 // only needed for autohome function
 #endif
 // DRIVER_TYPE_TMC2209_UART requires 2 additional digital pins for SoftwareSerial, can be shared across all drivers
 #ifndef ALT_SERIAL_PORT_TX
-    #define ALT_SERIAL_PORT_TX 44  // SoftwareSerial TX port
+    #define ALT_SERIAL_PORT_TX 42 // SoftwareSerial TX port
 #endif
 #ifndef ALT_SERIAL_PORT_RX
-    #define ALT_SERIAL_PORT_RX 66  // SoftwareSerial RX port
+    #define ALT_SERIAL_PORT_RX 65 // SoftwareSerial RX port
 #endif
 #ifndef ALT_DRIVER_ADDRESS
     #define ALT_DRIVER_ADDRESS 0b00
@@ -223,4 +223,33 @@
     #ifndef DEBUG_SERIAL_PORT
         #define DEBUG_SERIAL_PORT Serial
     #endif
+#endif
+
+// Defines for OAE ///////////////////////
+#ifndef RA_WHEEL_CIRCUMFERENCE
+    #define RA_WHEEL_CIRCUMFERENCE 704.97f
+#endif
+#ifndef DEC_TRANSMISSION
+    #define DEC_TRANSMISSION (DEC_WHEEL_CIRCUMFERENCE / (DEC_PULLEY_TEETH * 1.0))
+#endif
+#ifndef RA_LIMIT_LEFT
+    #define RA_LIMIT_LEFT 5.0f
+#endif
+#ifndef RA_LIMIT_RIGHT
+    #define RA_LIMIT_RIGHT 7.0f
+#endif
+#ifndef RA_TRACKING_LIMIT
+    #define RA_TRACKING_LIMIT 6.75f
+#endif
+#ifndef DEC_WHEEL_CIRCUMFERENCE
+    #define DEC_WHEEL_CIRCUMFERENCE 1.0f
+#endif
+#ifndef RA_STEPPER_SPR
+    #define RA_STEPPER_SPR (400 * 9)   // change to (200 * 9) for 1.8° stepper
+#endif
+#ifndef DEC_STEPPER_SPR
+    #define DEC_STEPPER_SPR (200 * 50 * 4.5f)  // change to (200 * 9) for 1.8° stepper
+#endif
+#ifndef DEC_PULLEY_TEETH
+    #define DEC_PULLEY_TEETH 1
 #endif
